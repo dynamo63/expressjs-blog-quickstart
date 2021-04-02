@@ -1,0 +1,23 @@
+{
+  "name": "dynamo-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=DEV nodemon src/app.js",
+    "build": "node src/app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.1",
+    "dotenv": "^8.2.0",
+    "express-validator": "^6.10.0",
+    "nodemon": "^2.0.7"
+  }
+}

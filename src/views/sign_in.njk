@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <header>
+        <h1 class="text-center mt-2">Formulaire d'inscription pour mon Blog</h1>
+    </header>
+
+    <main class="container mt-4">
+        <form action="/inscription" method="post">
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <label for="name" class="form-label">Comment puis-je vous appeler ?</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Dynamo Pourpre" required />
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <label for="email" class="form-label">J'aimerai avoir votre email pour vos feedbacks</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="dynamo@gmail.com" required />
+                </div>
+            </div>
+
+            {% if errors %}
+                <ul>
+                    {% for error in errors %}
+                        <li> {{ error.msg }} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary">
+                S'abonner aux Newsletter
+            </button>
+        </form>
+    </main>
+{% endblock %}

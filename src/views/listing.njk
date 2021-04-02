@@ -1,0 +1,36 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <header class="mt-4 mb-3">
+        <h1 class="text-center h2">Les meilleurs articles pour vous aider dans votre quotidien de developpeur</h1>
+    </header>
+    <main class="container">
+        <div class="row">
+            {% for note in notes %}
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ note.title }} </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                {% for category in note.tags %}
+                                    <span class="badge bg-dark"> {{ category }} </span>
+                                {% endfor %}
+                            </h6>
+                            <p class="card-text"> {{ note.content | truncate(255) }} </p>
+                            <a href="/posts/like/{{ note.id }}" class="card-link text-decoration-none like">
+                                <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="card-link text-decoration-none">
+                                <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>    
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <script src="/static/js/send-feedback.js"></script>
+{% endblock %}
