@@ -1,5 +1,3 @@
-const express = require('express')
-const router = express.Router()
 const { validationResult } = require('express-validator')
 const { User } = require('../models')
 
@@ -22,9 +20,6 @@ const subscribeNewsletter = (req, res) => {
 }
 
 const getHomePage = (_req, res) => {
-
-    console.log("Today is :" + Date())
-
     const context = {
         title: "Bienvenue sur mon blog Nodejs"
     }

@@ -36,9 +36,11 @@ app.use('/', userRouter)
 app.use('/posts', postRouter)
 
 // Lancement du serveur
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Mode ${isProd ? "Production": "Developement" }`)
     if (!isProd) {
         console.log(`Server running on http://localhost:${PORT}/`)
     }
 })
+
+module.exports = { app, server }

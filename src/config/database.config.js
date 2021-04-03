@@ -16,6 +16,14 @@ db.on('error', () => {
 
 db.once('open', function() {
     console.log('Connected to database:' + DATABASE_URL)
-});
+})
+
+db.once('disconnected', () => {
+    console.log('Database Disconnected')
+})
+
+db.once('close', () => {
+    console.log('Database closed')
+})
 
 module.exports = db
