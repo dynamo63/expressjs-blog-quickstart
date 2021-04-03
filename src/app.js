@@ -10,8 +10,7 @@ const morgan = require('morgan')
 require('./config/database.config')
 
 // Importation des routes
-const userRouter = require('./controllers/user.controller')
-const postRouter = require('./controllers/post.controller')
+const { postRouter, userRouter } = require('./routers')
 
 // Parsing des requetes
 // parse application/x-www-form-urlencoded
@@ -39,5 +38,7 @@ app.use('/posts', postRouter)
 // Lancement du serveur
 app.listen(PORT, () => {
     console.log(`Mode ${isProd ? "Production": "Developement" }`)
-    console.log(`Server running on http://localhost:${PORT}/`)
+    if (!isProd) {
+        console.log(`Server running on http://localhost:${PORT}/`)
+    }
 })

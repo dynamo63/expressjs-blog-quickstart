@@ -1,8 +1,11 @@
-const express = require('express')
-const router = express.Router()
+/*
+    Creation des controllers pour nos routes
+    - Ils prennent en parametre un objet request et response
+*/
+
 
 // Listing des notes
-router.get('/', (_req, res) => {
+const getAllNotes = (_req, res) => {
     const notes = [
         {
             title: "Un nouveau Post",
@@ -13,14 +16,17 @@ router.get('/', (_req, res) => {
         }
     ]
 
-    res.render('listing.njk', { notes })
-})
+    return res.render('listing.njk', { notes })
+}
 
 // Ajout d'une mention j'aime a une note
-router.post('/like/:idNote', (req, res) => {
+const addLikeToNote = (req, res) => {
     const idNote = req.params.idNote
     console.log(req.body)
     return res.json({ id: idNote })
-})
+}
 
-module.exports = router
+module.exports = {
+    getAllNotes,
+    addLikeToNote
+}
